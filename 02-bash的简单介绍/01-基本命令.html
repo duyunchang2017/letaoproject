@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>标题</title>
+</head>
+<body>
+<script>
+    //desktop是最下面的目录就相当于c盘
+    //1.pwd print work directory 打印当前的工作目录（即当前在哪）
+    //cd .. 返回上一级目录
+    //cd ~ 回到根目录(即回到家里 MINGW64)
+//    MINGW64/Desktop,即Desktop在MINGW64的后面
+    //cd images   进入images文件夹
+    //cd : change directory 改变当前目录
+    //ls : list  打印当前目录下的所有文件
+    //clear 和reset 都是用来清屏的
+    //mkdir :make directory 创建目录
+    //rmdir：删除空文件夹
+    //touch :创建文件
+    //touch css/index2.css:在css文件夹里创建一个index2.csswenjian创建文件
+    // rm:删除文件
+    //rm -r :递归删除删除文件夹（非空不非空都可以）
+    // cd /c 去c盘
+    // cd /d 去d 盘
+    //在任何目录下都可以用/去任何盘，例如/d  和/c
+    //cd除了能够直接去c,d,e,f盘之外，即跳跃，其他都不能跳跃
+    //mv: move  移动文件
+    //mv index.html css :把index.html文件移动到css文件夹中，而index.html文件和css文件夹在同一级目录
+    //mv index.css css/index2.css:把 index.css文件放在css文件夹中，并把index.css重命名为index2.css
+    //mv index.html index2.html   将index.html重命名为index2.html
+    //cp 复制文件
+   // cp index.html index2.html    复制index.html文件，命名为index2.html
+//cat 或者less查看文件里面的内容,cat会把文件里的内容一次性全部展示出来，less会一点点的展示出来，q是退出查看
+git就是用来做备份的
+
+
+    <!--基本方法-->
+
+    <!--1. 初始化git仓库git init-->生成一个.git文件夹
+    <!--2. 查看当前git仓库的状态git status-->
+    <!--3. 将文件添加到git的暂存区git add 文件名-->
+    <!--4. 将文件由暂存区提交到仓库区git commit -m '提交说明'-->
+    <!--5. 查看提交日子git log-->
+
+    <!--# 初始化git仓库，会在当前目录生成一个隐藏文件夹 .git  不要去修改这个文件夹下的任意东西。-->
+    <!--git init-->
+
+    <!--# 查看git的状态 ,如果此时新建一个文件，那么这个文件是没有被追踪的，说白了git还没有管理这个新建的文件-->
+    <!--git status-->
+
+    <!--# 让git管理这个新建的文件-->
+    <!--git add index.html-->
+
+    <!--# 让文件由暂存区提交到仓库区。此时文件才真正的被git管理了。-->
+    <!--#-->
+    <!--# 如果提交日志乱码，右键&ndash;&gt;options&ndash;&gt;Text&ndash;&gt;将编码改成utf-8-->
+
+    <!--git commit -m '第一次提交'-->
+
+    <!--# 查看提交日志-->
+    <!--git log-->
+    按上和下方向键可以找以前的命令
+commit 提交
+
+    git命令详解
+
+    git add(重点)
+
+    - 作用：将文件由 工作区 添加到 暂存区，暂存文件
+    - 命令：git add 文件名
+    - 例如： git add index.html
+    - git add --all 或者 git add -A 获取git add .（简写） 添加所有文件
+    - git add a.txt b.txt 同时添加两个文件
+    - git add *.js 添加当前目录下的所有js文件
+
+    git checkout 文件名
+
+    - 作用：暂存区的内容恢复到工作区。
+    - git checkout 1.txt 将暂存区中1.txt文件恢复到工作区
+
+    git commit（重点）
+
+    - 作用：将文件由 暂存区 添加到  仓库区
+    - git commit -m "提交说明"
+
+    git status
+
+    - 作用：查看文件的状态
+
+    - 命令：git status
+    - 命令：git stauts -s 简化日志输出格式
+
+    git log
+
+    - 作用：查看提交日志
+    - git log 只能查看当前head以及以前的日志
+    - git log --oneline 简洁的日志信息
+    - git reflog 查看所有的提交变更日志
+
+    git reset
+
+    - 作用：版本回退，将代码恢复到已经提交的某一个版本中。
+    - git reset --hard 版本号 将代码回退到某个指定的版本(版本号只要有前几位即可)
+    - git reset --hard head~1将版本回退到上一次提交
+    - ~1:上一次提交
+    - ~2:上上次提交
+    - ~0:当前提交
+
+    git忽视文件
+
+    在仓库中，有些文件是不想被git管理的，比如数据的配置密码、写代码的一些思路等。git可以通过配置从而达到忽视掉一些文件，这样这些文件就可以不用提交了。
+
+    - 在仓库的根目录创建一个.gitignore的文件，文件名是固定的。
+    - 将不需要被git管理的文件路径添加到.gitignore中
+
+    # 忽视idea.txt文件
+    idea.txt
+
+    # 忽视.gitignore文件
+            .gitignore
+
+    #忽视css下的index.js文件
+    css/index.js
+
+     忽视css下的所有的js文件
+    css/*.js
+
+     # 忽视css下的所有文件
+     css/*.*
+     # 忽视css文件夹
+     css
+
+     git分
+
+
+
+     $ cd ../04-git基本命令详解/ 出来一级，然后进入04文件夹
+
+
+
+没有add之前的状态是红色的，add之后是绿色的
+
+
+给it add .  将所有的文件都添加到暂存区
+如果把工作区的代码给删了，那么暂存区的代码也会跟着删了
+
+
+
+当吧暂存区里的代码提交到仓库区之后，会在仓库区生成一个版本号，同时暂存区的代码会被清除掉
+git add . :把文件添加到暂存区
+linux
+mkdir创建文件夹
+rmdir删除空的文件夹
+rmdir删除空的文件夹
+rmdir删除空的文件夹
+
+touch创建文件
+touch创建文件
+touch创建文件
+touch创建文件
+rm删除文件
+rm -r删除目录
+rm删除文件
+rm -r删除目录
+
+
+
+
+git就是用来做备份的
+git就是用来备份的
+git commit -m "提交说明"
+git log 查看提交日志
+git commit -m '提交说明'
+git status
+git add .
+git commit -m
+在没有add之前的状态是红色的，add之后是绿色的
+在没有add之前的状态是红色的，add之后是绿色的、
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
